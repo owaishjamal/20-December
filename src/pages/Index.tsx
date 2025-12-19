@@ -4,6 +4,7 @@ import JourneySection from "@/components/sections/JourneySection";
 import AppreciationSection from "@/components/sections/AppreciationSection";
 import BirthdayAppreciationSection from "@/components/sections/BirthdayAppreciationSection";
 import DuaSection from "@/components/sections/DuaSection";
+import MiscellaneousSection from "@/components/sections/MiscellaneousSection";
 import BlessingsSection from "@/components/sections/BlessingsSection";
 import QuranSection from "@/components/sections/QuranSection";
 import ClosingSection from "@/components/sections/ClosingSection";
@@ -62,6 +63,8 @@ const Index = () => {
       
       {/* Dua & Quran */}
       <DuaSection />
+  {/* Miscellaneous merged features */}
+  <MiscellaneousSection />
       <QuranSection />
       <PauseCard index={3} />
       

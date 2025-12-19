@@ -46,6 +46,15 @@ const Navigation = () => {
             >
               Distance, With Trust
             </NavLink>
+            <NavLink
+              to="/misc"
+              className={cn(
+                "font-body text-sm md:text-base text-muted-foreground hover:text-foreground transition-colors duration-300 hover-underline"
+              )}
+              activeClassName="text-primary"
+            >
+              Miscellaneous
+            </NavLink>
           </div>
         </div>
       </div>
