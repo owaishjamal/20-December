@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;600&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Serene Islamic palette */
+    --background: 40 33% 96%;
+    --foreground: 200 15% 15%;
+
+    --card: 40 40% 98%;
+    --card-foreground: 200 15% 15%;
+
+    --popover: 40 40% 98%;
+    --popover-foreground: 200 15% 15%;
+
+    /* Deep teal - primary */
+    --primary: 175 35% 25%;
+    --primary-foreground: 40 33% 96%;
+
+    /* Warm cream - secondary */
+    --secondary: 38 45% 90%;
+    --secondary-foreground: 200 15% 20%;
+
+    /* Muted tones */
+    --muted: 38 30% 88%;
+    --muted-foreground: 200 10% 45%;
+
+    /* Soft gold accent */
+    --accent: 42 65% 55%;
+    --accent-foreground: 200 15% 15%;
+
+    /* Deep green for emphasis */
+    --emphasis: 165 40% 20%;
+    --emphasis-foreground: 40 33% 96%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 25% 85%;
+    --input: 38 25% 85%;
+    --ring: 175 35% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-serene: linear-gradient(180deg, hsl(40 33% 96%) 0%, hsl(38 45% 92%) 100%);
+    --gradient-golden: linear-gradient(135deg, hsl(42 65% 55%) 0%, hsl(38 55% 65%) 100%);
+    --gradient-teal: linear-gradient(135deg, hsl(175 35% 25%) 0%, hsl(165 40% 30%) 100%);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+    --font-arabic: 'Amiri', serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(200 15% 15% / 0.08);
+    --shadow-golden: 0 8px 30px -8px hsl(42 65% 55% / 0.25);
+  }
+
+  .dark {
+    --background: 200 20% 10%;
+    --foreground: 40 33% 95%;
+
+    --card: 200 18% 12%;
+    --card-foreground: 40 33% 95%;
+
+    --popover: 200 18% 12%;
+    --popover-foreground: 40 33% 95%;
+
+    --primary: 175 40% 45%;
+    --primary-foreground: 200 20% 10%;
+
+    --secondary: 200 15% 18%;
+    --secondary-foreground: 40 33% 95%;
+
+    --muted: 200 15% 20%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 42 55% 50%;
+    --accent-foreground: 200 20% 10%;
+
+    --emphasis: 165 35% 40%;
+    --emphasis-foreground: 200 20% 10%;
+
+    --border: 200 15% 20%;
+    --input: 200 15% 20%;
+    --ring: 175 40% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background: var(--gradient-serene);
+    min-height: 100vh;
+  }
+
+  /* Smooth section transitions */
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .text-gradient-golden {
+    background: var(--gradient-golden);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-serene {
+    background: var(--gradient-serene);
+  }
+
+  .bg-gradient-teal {
+    background: var(--gradient-teal);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-golden {
+    box-shadow: var(--shadow-golden);
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes breathe {
+    0%, 100% {
+      opacity: 0.4;
+      transform: scaleY(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scaleY(1.1);
+    }
+  }
+
+  @keyframes underline {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 4s ease-in-out infinite;
+  }
+
+  .animate-breathe {
+    animation: breathe 4s ease-in-out infinite;
+  }
+
+  /* Smooth scroll fade effect */
+  @keyframes smoothFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Section transition spacing */
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Better scroll performance */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Smooth scroll behavior for all pages */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Improved section spacing rhythm */
+  section {
+    position: relative;
+  }
+
+  /* Better animation performance */
+  [data-framer-component] {
+    will-change: transform, opacity;
+  }
+
+  /* Smooth fade transitions */
+  @supports (backdrop-filter: blur(1px)) {
+    .backdrop-blur-sm,
+    .backdrop-blur-md {
+      transition: backdrop-filter 0.3s ease;
+    }
+  }
+
+  /* Hover underline effect */
+  .hover-underline {
+    position: relative;
+    display: inline-block;
+  }
+
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .hover-underline:hover::after {
+    width: 100%;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+}
